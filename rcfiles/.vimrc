@@ -19,10 +19,9 @@ set t_Co=256
 set background=dark
 
 colorscheme elflord
-"""colorscheme vkt
 
 " Enable spell check
-"set spell
+" set spell
 
 
 "Do not redraw, when running macros.. lazyredraw
@@ -44,7 +43,7 @@ set autoread
 "set mouse=a
 "Set mapleader
 set laststatus=2
-set statusline=\ %n:%f%m%r%y%=%l:%c/%L\ \ 
+set statusline=\ %n:%f%m%r%y%=%l:%c/%L\ \
 set nobackup
 set nowb
 set noswapfile
@@ -77,7 +76,7 @@ nmap <leader>f :e ~/buffer<cr>
 " vimdiff key maps
 nnoremap <leader>u :diffupdate<cr>
 nnoremap <leader>g :diffget<cr>
-nnoremap <leader>p :diffput<cr> 
+nnoremap <leader>p :diffput<cr>
 
 "Some nice mapping to switch syntax (useful if one mixes different languages in one file)
 map <leader>1 :set syntax=c<cr>
@@ -139,17 +138,8 @@ set diffopt=filler,context:100000
 map <leader>, :bp<cr>
 map <leader>. :bn<cr>
 
-au BufRead,BufNewFile *.thpl setf perl
-
-"smf syntax highlighting by Ajay
-"au BufRead,BufNewFile *.smf setf smf
-
-
-set csprg=/usr/software/rats/bin/cscope-15.6
-if filereadable("tools/bedrock/export/common/cscope/cscope.out")
- cs add tools/bedrock/export/common/cscope/cscope.out
-elseif filereadable("./cscope.out")
- cs add cscope.out 
+if filereadable("./cscope.out")
+ cs add cscope.out
 endif
 set ruler
 
@@ -195,5 +185,3 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 
 highlight MyGroup ctermbg=red guibg=red
 2match MyGroup "\s\+$"
-
-
