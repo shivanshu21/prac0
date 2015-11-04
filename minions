@@ -1,0 +1,5 @@
+#! /bin/bash
+COMMANDSTR="perl -e 'foreach \$i (1 .. 3) { \$output = \`ssh node\$i "
+TERMSTR="\`; print (qq(\n\n======> Node\$i:\n \$output)); }'"
+echo ${COMMANDSTR}"$1"${TERMSTR}
+eval ${COMMANDSTR}"$1"${TERMSTR}

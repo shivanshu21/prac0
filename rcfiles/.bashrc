@@ -13,6 +13,7 @@ alias WMCONNECT="ssh src0@192.168.56.103"
 alias XMCONNECT="ssh src0@192.168.56.104"
 alias CHECKVMPING="ping 192.168.56.102"
 alias SYSDEPLOY="./wenv.sh;screen -x;"
+alias MINIONS="~/minions"
 
 ## Git stuff
 alias diffgit="git diff --cached"
