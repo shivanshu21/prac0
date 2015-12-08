@@ -30,10 +30,10 @@ export GREP_OPTIONS='--color=auto'
 eval `dircolors -b ~/.dir_colors`
 
 ## Keystone
-export OS_SERVICE_ENDPOINT="http://localhost:35357/v2.0"
-export OS_AUTH_URL="http://localhost:35357/v2.0"
+export OS_SERVICE_ENDPOINT="http://127.0.0.1:35357/v2.0"
+export OS_AUTH_URL="http://127.0.0.1:35357/v2.0"
 export OS_SERVICE_TOKEN="ADMIN"
 
 export http_proxy="10.140.221.232:3128"
 export https_proxy=$http_proxy
-export no_proxy="localhost, 127.0.0.1"
+export no_proxy="localhost,127.0.0.1"
