@@ -1,5 +1,5 @@
 #! /bin/bash
-sudo cp rcfiles/.bashrc ~
+sudo cp vmbashrc/.bashrc ~
 sudo cp rcfiles/.vimrc ~
 sudo cp rcfiles/.screenrc ~
 sudo cp rcfiles/.nanorc ~
