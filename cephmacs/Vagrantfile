@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--memory", "512"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
-    config.vm.provision "shell", inline: "echo node4 | sudo tee /etc/hostname"
+    node4.vm.provision "shell", inline: "echo node4 | sudo tee /etc/hostname"
   end
 
   config.vm.define "node5" do |node5|
@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--memory", "512"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
-    config.vm.provision "shell", inline: "echo node5 | sudo tee /etc/hostname"
+    node5.vm.provision "shell", inline: "echo node5 | sudo tee /etc/hostname"
   end
 
   config.vm.define "node6" do |node6|
@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--memory", "512"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
-    config.vm.provision "shell", inline: "echo node6 | sudo tee /etc/hostname"
+    node6.vm.provision "shell", inline: "echo node6 | sudo tee /etc/hostname"
   end
 
   config.vm.define "node7" do |node7|
@@ -50,7 +50,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       vb.customize ["modifyvm", :id, "--memory", "512"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
-    config.vm.provision "shell", inline: "echo node7 | sudo tee /etc/hostname"
+    node7.vm.provision "shell", inline: "echo admin | sudo tee /etc/hostname"
+    node7.vm.provision "shell", inline: "python /vagrant/cephInstall.py"
   end
 
 end

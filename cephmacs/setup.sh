@@ -29,11 +29,9 @@ echo "192.168.33.10      node4" | sudo tee -a /etc/hosts
 echo "192.168.33.11      node5" | sudo tee -a /etc/hosts
 echo "192.168.33.12      node6" | sudo tee -a /etc/hosts
 echo "192.168.33.13      node7" | sudo tee -a /etc/hosts
+echo "192.168.33.13      admin" | sudo tee -a /etc/hosts
 sudo cp /vagrant/ssh_config /home/vagrant/.ssh
 sudo mv /home/vagrant/.ssh/ssh_config /home/vagrant/.ssh/config
 sudo cp /vagrant/ssh_config /root/.ssh
 sudo mv /root/.ssh/ssh_config /root/.ssh/config
-
-echo "======================== Installing CEPH if node is admin"
-su vagrant
-python cephInstall.py
+python addkeys.py

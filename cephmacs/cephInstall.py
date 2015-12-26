@@ -4,52 +4,9 @@ import os
 import re
 import sys
 
-PASSWORD = 'vagrant'
-TIMEOUT  = 10
-ADMIN_NODE = 'node4'
-
-#==================== FUNCTION DEFINITIONS ====================#
-def genKey():
-    child = pexpect.spawn('ssh-keygen')
-    child.expect('Enter.*: ', TIMEOUT)
-    child.sendline()
-    ret = child.expect(['Enter passphrase.*: ', '.*Overwrite.*'], TIMEOUT)
-    if ret == 0:
-        child.sendline()
-    elif ret == 1:
-        child.sendline('y')
-        child.expect('Enter passphrase.*: ')
-        child.sendline()
-    child.expect('Enter same passphrase.*: ', TIMEOUT)
-    child.sendline()
-    print child.before
-    try:
-        child.interact()
-    except:
-        print "Unexpected error during keypair generation"
-    return 0
-
-def copyKey(node):
-    command_str = 'ssh-copy-id ' + node
-    child = pexpect.spawn(command_str)
-    ret = child.expect(['Are you sure.*', '.*password: '], TIMEOUT)
-    if ret == 0:
-        child.sendline('yes')
-        child.expect('.*password: ',TIMEOUT)
-        child.sendline(PASSWORD)
-    elif ret == 1:
-        child.sendline(PASSWORD)
-    else:
-        print "Unexpected prompt during copying keys"
-    print child.before
-    try:
-        child.interact()
-    except:
-        print "Unexpected error has occured during copying keys"
-    return 0
+ADMIN_NODE = 'admin'
 
 #==================== PROGRAM FLOW ====================#
-
 ## Check whether this is the admin node
 command = 'cat /etc/hostname'
 ret = os.popen(command).read()
@@ -75,13 +32,6 @@ os.system(command)
 command = "sudo apt-get -y install ntp"
 os.system(command)
 
-## Generate SSH keys and push admin's ssh keys on other nodes
-print "\n\n== Generating keypair and copying  =="
-genKey()
-copyKey('node5')
-copyKey('node6')
-copyKey('node7')
-
 ## Run the ceph deploy script
 print "\n\n== Running CEPH deploy =="
 command = 'mkdir ceph_cluster'
@@ -96,7 +46,6 @@ os.system(command)
 command = 'sudo chmod 0755 ./ceph.conf'
 os.system(command)
 
-'''
 #### Start installation of ceph binaries
 command = 'ceph-deploy install node4 node5 node6 node7'
 os.system(command)
@@ -122,4 +71,3 @@ command = 'ceph-deploy admin node4 node5 node6 node7'
 os.system(command)
 command = 'sudo chmod +r /etc/ceph/ceph.client.admin.keyring'
 os.system(command)
-'''
