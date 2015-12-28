@@ -24,6 +24,7 @@ alias koding="ssh shivanshu21@shivanshu21.koding.io"
 
 ## UC machine access
 alias UCMAC="ssh -i bafnakey.txt ubuntu@10.140.13.4"
+alias WSMAC="ssh -i bafnakey.txt ubuntu@10.140.13.15"
 
 ## let ls and dir have good colors :)
 export GREP_OPTIONS='--color=auto'

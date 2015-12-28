@@ -3,17 +3,9 @@ export PS1="\e[0;31m\u@\h \w: \e[m"
 alias ls="ls -F --color"
 alias ll="ls -lart"
 alias vi="vim"
-alias search="ls -F | grep \\"
-alias nosearch="ls -F | grep -v \\"
 
 ## Machine specific
 alias GWD="cd ~/gitcode/ceph/src"
-alias VMCONNECT="ssh src0@192.168.56.102"
-alias WMCONNECT="ssh src0@192.168.56.103"
-alias XMCONNECT="ssh src0@192.168.56.104"
-alias CHECKVMPING="ping 192.168.56.102"
-alias SYSDEPLOY="./wenv.sh;screen -x;"
-alias MINIONS="~/minions"
 
 ## Git stuff
 alias diffgit="git diff --cached"
@@ -33,7 +25,3 @@ eval `dircolors -b ~/.dir_colors`
 export OS_SERVICE_ENDPOINT="http://127.0.0.1:35357/v2.0"
 export OS_AUTH_URL="http://127.0.0.1:35357/v2.0"
 export OS_SERVICE_TOKEN="ADMIN"
-
-export http_proxy="10.140.221.232:3128"
-export https_proxy=$http_proxy
-export no_proxy="localhost,127.0.0.1"
