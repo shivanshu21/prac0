@@ -14,14 +14,16 @@ alias addgit="git add ."
 ## Koding.com
 alias koding="ssh shivanshu21@shivanshu21.koding.io"
 
-## UC machine access
-alias UCMAC="ssh -i bafnakey.txt ubuntu@10.140.13.4"
-
-## let ls and dir have good colors :)
+## Let ls and dir have good colors
 export GREP_OPTIONS='--color=auto'
 eval `dircolors -b ~/.dir_colors`
 
-## Keystone
+## Keystone: Needed for VMs on local laptop
 export OS_SERVICE_ENDPOINT="http://127.0.0.1:35357/v2.0"
 export OS_AUTH_URL="http://127.0.0.1:35357/v2.0"
 export OS_SERVICE_TOKEN="ADMIN"
+
+## HTTP proxy
+export http_proxy="10.140.221.232:3128"
+export https_proxy="10.140.221.232:3128"
+export no_proxy="localhost,127.0.0.1"
