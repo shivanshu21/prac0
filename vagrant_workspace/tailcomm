@@ -1,0 +1,1 @@
+tail -f rgw.log | grep -v '<== osd.' | grep -v 'ping magic' | grep -v 'watch ping cookie'
