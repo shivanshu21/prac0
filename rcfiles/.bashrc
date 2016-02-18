@@ -22,7 +22,7 @@ alias addgit="git add ."
 alias koding="ssh shivanshu21@shivanshu21.koding.io"
 
 ## UC machine access
-alias WSMAC="ssh -i bafnakey.txt ubuntu@10.140.13.15"
+alias WSMAC="ssh -i rahulKey obj_team@10.140.13.15"
 
 ## let ls and dir have good colors :)
 export GREP_OPTIONS='--color=auto'
