@@ -12,4 +12,3 @@ sudo cp alive.sh ~
 sudo cp tbceph.sh ~
 sudo chmod 755 ~/minions
 sudo chmod 755 ~/wenv.sh
-sudo chmod 755 ~/tbceph.sh

@@ -11,7 +11,6 @@ alias GWD="cd ~/gitcode/ceph/src"
 alias VMCONNECT="ssh src0@192.168.56.102"
 alias WMCONNECT="ssh src0@192.168.56.103"
 alias XMCONNECT="ssh src0@192.168.56.104"
-alias CHECKVMPING="ping 192.168.56.102"
 alias SYSDEPLOY="./wenv.sh;screen -x;"
 alias MINIONS="~/minions"
 
@@ -23,8 +22,7 @@ alias addgit="git add ."
 alias koding="ssh shivanshu21@shivanshu21.koding.io"
 
 ## UC machine access
-alias UCMAC="ssh -i bafnakey.txt ubuntu@10.140.13.4"
-alias WSMAC="ssh -i bafnakey.txt ubuntu@10.140.13.15"
+alias WSMAC="ssh -i rahulKey obj_team@10.140.13.15"
 
 ## let ls and dir have good colors :)
 export GREP_OPTIONS='--color=auto'
