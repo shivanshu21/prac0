@@ -9,5 +9,7 @@ sudo cp minions ~
 sudo cp vpn.sh ~
 sudo cp vpn_conf ~
 sudo cp alive.sh ~
+sudo cp dev_vagrant/tailcomm ~
 sudo chmod 755 ~/minions
 sudo chmod 755 ~/wenv.sh
+sudo chmod 755 ~/tailcomm
