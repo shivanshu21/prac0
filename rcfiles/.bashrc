@@ -21,8 +21,14 @@ alias addgit="git add ."
 ## Koding.com
 alias koding="ssh shivanshu21@shivanshu21.koding.io"
 
-## UC machine access
+## machine access
 alias WSMAC="ssh -i rahulKey obj_team@10.140.13.15"
+alias BOOTSTRAP="ssh -i rahulKey obj_team@10.140.214.195"
+alias DSSMON1="ssh -i rahulKey obj_team@10.140.214.196"
+alias DSSMON2="ssh -i rahulKey obj_team@10.140.214.197"
+alias DSSMON3="ssh -i rahulKey obj_team@10.140.214.198"
+alias DSSMON4="ssh -i rahulKey obj_team@10.140.214.199"
+alias DSSMON5="ssh -i rahulKey obj_team@10.140.214.200"
 
 ## let ls and dir have good colors :)
 export GREP_OPTIONS='--color=auto'
