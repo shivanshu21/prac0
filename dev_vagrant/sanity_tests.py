@@ -13,7 +13,7 @@ def bucketSanity():
     ## Create five buckets
     dssSanityLib.whisper("Creating five test buckets and putting objects in them...")
     bucketpref = dssSanityLib.getsNewBucketName()
-    dssSanityLib.createMaxBuckets(12, bucketpref)
+    dssSanityLib.createMaxBuckets(5, bucketpref)
 
     ## Bucket name conflict during creation
     #dssSanityLib.whisper("Trying to create a bucket with name conflict...")

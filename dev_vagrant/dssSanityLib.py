@@ -9,20 +9,24 @@ from boto.s3.connection import S3Connection
 ###################### INIT ########################
 
 # PARAMS
-GLOBAL_DEBUG = 0
+GLOBAL_DEBUG = 1
 MULTIPART_LARGE_FILE = ''
 
-#RADOSHOST    = 'dss.ind-west-1.staging.jiocloudservices.com'
+#RADOSHOST    = 'dss.ind-west-1.internal.jiocloudservices.com'
 #RADOSPORT    = 443
 #isSecure     = True
 
-#RADOSHOST     = '127.0.0.1'
-#RADOSPORT     = 8000
-#isSecure      = False
+RADOSHOST     = '192.168.33.12'
+RADOSPORT     = 8000
+isSecure      = False
 
-RADOSHOST    = '10.140.214.196'
-RADOSPORT    = 7480
-isSecure     = False
+#RADOSHOST    = '127.0.0.1'
+#RADOSPORT    = 8000
+#isSecure     = False
+
+#RADOSHOST     = '10.140.208.225'
+#RADOSPORT     = 443
+#isSecure      = True
 
 CLI_USER     = ''
 CLI_COMMAND  = ''
@@ -60,7 +64,7 @@ def getConnection(user = None):
             aws_access_key_id     = access_key,
             aws_secret_access_key = secret_key,
             host = RADOSHOST,
-            port = RADOSPORT,
+            #port = RADOSPORT,
             is_secure = isSecure,
             calling_format = boto.s3.connection.OrdinaryCallingFormat(),
             debug = 2,

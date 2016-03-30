@@ -25,7 +25,7 @@
 #my $signature      = '';
 #my $cannonical_str = '';
 
-my $token          = '2a6b8a8f576c4a9bb9fbc35f4815881d_deb06b8ab0d3474d9d25fb125535acff'; ## Generate and put
+my $token          = 'b12f8402857f4ac3ba58bf4e13a58633_b12f8402857f4ac3ba58bf4e13a58633'; ## Generate and put
 my $user_to_create = ''; ## For creating new users
 ##===================================
 
@@ -94,7 +94,7 @@ my $rgwreqmd = "curl -v -X \"PUT\" -H \"X-Auth-Token: $token\" $rgw_endpoint/shi
 
 #doAction($signreq);
 #doAction($tokreq);
-doAction($rgwreqlb);
+doAction($rgwreqlab);
 #doAction($usercreate);
 #doAction($usercredentialscreate);
 #doAction($iamtokvalidation);
