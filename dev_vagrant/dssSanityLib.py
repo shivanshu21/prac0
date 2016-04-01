@@ -16,13 +16,13 @@ MULTIPART_LARGE_FILE = ''
 #RADOSPORT    = 443
 #isSecure     = True
 
-RADOSHOST     = '192.168.33.12'
-RADOSPORT     = 8000
-isSecure      = False
+#RADOSHOST     = '192.168.33.12'
+#RADOSPORT     = 8000
+#isSecure      = False
 
-#RADOSHOST    = '127.0.0.1'
-#RADOSPORT    = 8000
-#isSecure     = False
+RADOSHOST    = '127.0.0.1'
+RADOSPORT    = 8000
+isSecure     = False
 
 #RADOSHOST     = '10.140.208.225'
 #RADOSPORT     = 443
@@ -64,7 +64,7 @@ def getConnection(user = None):
             aws_access_key_id     = access_key,
             aws_secret_access_key = secret_key,
             host = RADOSHOST,
-            #port = RADOSPORT,
+            port = RADOSPORT,
             is_secure = isSecure,
             calling_format = boto.s3.connection.OrdinaryCallingFormat(),
             debug = 2,

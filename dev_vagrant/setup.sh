@@ -21,3 +21,7 @@ git clone https://github.com/shivanshu21/prac0.git
 cd prac0
 chmod 755 cprcfil.sh
 ./cprcfil.sh
+
+echo "========================== Installing CEPH"
+cd ..
+/vagrant/runsceph.sh
