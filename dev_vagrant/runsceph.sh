@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "==========  Fetching CEPH repo  =========="
-cd /root/gitcode/ceph
 source /vagrant/prxy
 git clone https://github.com/shivanshu21/ceph.git
+cd /root/gitcode/ceph
 git checkout hammer_cross_account
 echo "==========  Installing dependencies =========="
 ./install-deps.sh

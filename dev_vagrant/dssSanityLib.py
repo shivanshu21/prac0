@@ -16,13 +16,18 @@ MULTIPART_LARGE_FILE = ''
 #RADOSPORT    = 443
 #isSecure     = True
 
-#RADOSHOST     = '192.168.33.12'
-#RADOSPORT     = 8000
+RADOSHOST    = 'dss.ind-west-1.staging.jiocloudservices.com'
+RADOSPORT    = 443
+isSecure     = True
+
+
+#RADOSHOST     = '10.140.214.198'
+#RADOSPORT     = 7480
 #isSecure      = False
 
-RADOSHOST    = '127.0.0.1'
-RADOSPORT    = 8000
-isSecure     = False
+#RADOSHOST    = '127.0.0.1'
+#RADOSPORT    = 8000
+#isSecure     = False
 
 #RADOSHOST     = '10.140.208.225'
 #RADOSPORT     = 443
