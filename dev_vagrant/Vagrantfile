@@ -40,4 +40,44 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
+  config.vm.define "shiv0" do |shiv0|
+    shiv0.vm.network :forwarded_port, guest: 80, host: 8091
+    shiv0.vm.network :private_network, ip: "192.168.35.13"
+    shiv0.vm.provider :virtualbox do |vb|
+      vb.gui = false
+      vb.customize ["modifyvm", :id, "--memory", "8192"]
+      vb.customize ["modifyvm", :id, "--cpus", "8"]
+    end
+  end
+
+  config.vm.define "shiv1" do |shiv1|
+    shiv1.vm.network :forwarded_port, guest: 80, host: 8092
+    shiv1.vm.network :private_network, ip: "192.168.35.14"
+    shiv1.vm.provider :virtualbox do |vb|
+      vb.gui = false
+      vb.customize ["modifyvm", :id, "--memory", "8192"]
+      vb.customize ["modifyvm", :id, "--cpus", "8"]
+    end
+  end
+
+  config.vm.define "rgarg0" do |rgarg0|
+    rgarg0.vm.network :forwarded_port, guest: 80, host: 8093
+    rgarg0.vm.network :private_network, ip: "192.168.34.21"
+    rgarg0.vm.provider :virtualbox do |vb|
+      vb.gui = false
+      vb.customize ["modifyvm", :id, "--memory", "8192"]
+      vb.customize ["modifyvm", :id, "--cpus", "8"]
+    end
+  end
+
+  config.vm.define "rgarg1" do |rgarg1|
+    rgarg1.vm.network :forwarded_port, guest: 80, host: 8094
+    rgarg1.vm.network :private_network, ip: "192.168.34.22"
+    rgarg1.vm.provider :virtualbox do |vb|
+      vb.gui = false
+      vb.customize ["modifyvm", :id, "--memory", "8192"]
+      vb.customize ["modifyvm", :id, "--cpus", "8"]
+    end
+  end
+
 end

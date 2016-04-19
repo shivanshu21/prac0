@@ -74,7 +74,8 @@ def multipartObjectUpload():
             print "get_all_multipart_uploads: " + str(i)
 
         print("\n\nCompleting uploads")
-        mp.complete_upload()
+        resp = mp.complete_upload()
+        print "\n\n" + str(resp.etag) + "\n\n"
         #print("\n\nCancelling uploads")
         #mp.cancel_upload()
 
@@ -191,7 +192,7 @@ def main(argv):
 
     ## PARAM OVERRIDES
     #dssSanityLib.MULTIPART_LARGE_FILE = '/boot/initrd.img-3.13.0-24-generic' # Need a large file to upload in multiparts.
-    dssSanityLib.MULTIPART_LARGE_FILE = 'output.dat' # Need a large file to upload in multiparts.
+    dssSanityLib.MULTIPART_LARGE_FILE = 'tput.dat' # Need a large file to upload in multiparts.
     dssSanityLib.GLOBAL_DEBUG = 1                    # The lib supresses debug logs by default. Override here.
     ##dssSanityLib.RADOSHOST = '127.0.0.1'           # The lib points to DSS staging endpoint by default. Override here.
     ##dssSanityLib.RADOSPORT = 7480                  # The lib points to DSS staging endpoint by default. Override here.
@@ -201,10 +202,10 @@ def main(argv):
         sys.exit(2)
 
     ## TESTCASES
-    dssSanityLib.callTest(bucketSanity(), "Create buckets and objects then delete them")
+    #dssSanityLib.callTest(bucketSanity(), "Create buckets and objects then delete them")
     dssSanityLib.callTest(multipartObjectUpload(), "Upload object in Multiparts")
     #dssSanityLib.callTest(dnsNamesTest(), "Check various DNS name rules")
-    dssSanityLib.callTest(publicUrlTest(), "Public URL test")
+    #dssSanityLib.callTest(publicUrlTest(), "Public URL test")
 
     ## CLEANUP
     userObj = dssSanityLib.getConnection()
