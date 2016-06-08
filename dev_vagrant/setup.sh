@@ -3,13 +3,15 @@ sudo -i
 cp /vagrant/apt.conf /etc/apt
 export http_proxy=10.140.221.232:3128
 export https_proxy=$http_proxy
-export no_proxy="127.0.0.1, localhost"
+export no_proxy="127.0.0.1,localhost"
 
 echo "========================== Installing software"
 apt-get -y update
 apt-get -y install git
 apt-get -y install screen
-
+apt-get -y install ctags
+apt-get -y install cscope
+apt-get -y install gdb
 echo "========================== Making directories"
 mkdir /root/gitcode
 cd /root/gitcode
