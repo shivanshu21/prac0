@@ -3,16 +3,20 @@ echo "==========  Fetching CEPH repo  =========="
 source /vagrant/prxy
 git clone https://github.com/shivanshu21/ceph.git
 cd /root/gitcode/ceph
-git checkout hammer_cross_account
+git checkout hammer_public_bucket
+
 echo "==========  Installing dependencies =========="
 ./install-deps.sh
+
 echo "==========  Autogen =========="
 ./autogen.sh
+
 echo "========== Configure  =========="
 ./configure
-#ceph/configure.sh
+
 echo "==========  Make  =========="
 make -j4
+
 echo "==========  Running Vstart  =========="
 cd ./src
 unset http_proxy

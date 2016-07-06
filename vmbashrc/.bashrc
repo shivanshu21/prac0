@@ -6,6 +6,9 @@ alias vi="vim"
 
 ## Machine specific
 alias GWD="cd ~/gitcode/ceph/src"
+alias RGW="cd ~/workspace;vagrant ssh rgw"
+alias SVM0="cd ~/workspace;vagrant ssh shiv0"
+alias SVM1="cd ~/workspace;vagrant ssh shiv1"
 
 ## Git stuff
 alias diffgit="git diff --cached"
