@@ -22,6 +22,6 @@ cd prac0
 chmod 755 cprcfil.sh
 ./cprcfil.sh
 
-echo "========================== Installing CEPH"
-cd ..
-/vagrant/runsceph.sh
+#echo "========================== Installing CEPH"
+#cd ..
+#/vagrant/runsceph.sh

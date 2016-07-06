@@ -367,7 +367,14 @@ if [ "$start_mon" -eq 1 ]; then
         rgw keystone url = https://iam.ind-west-1.staging.jiocloudservices.com
         rgw s3 auth use keystone = true
         dss regional url = "www.dss.jiocloudservices.com"
-        rgw chop rc zeroes = true
+        #
+        #Rename
+        rgw enable rename op = true
+        #fault inj rename op copy fail = true
+        #fault inj rename op delete fail = true
+        #fault inj rename op parse fail = true
+        #fault inj rename op sleep after copy =false
+        #
         debug rgw = 20
         filestore fd cache size = 32
         run dir = $CEPH_OUT_DIR

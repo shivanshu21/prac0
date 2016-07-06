@@ -6,8 +6,10 @@ import json
 import base64
 import requests
 import exceptions
+import dssSanityLib
 import xml.dom.minidom
 from hashlib import sha1
+from boto.s3.key import Key
 from email.utils import formatdate
 
 ##===================================
@@ -15,12 +17,15 @@ from email.utils import formatdate
 ##===================================
 
 COMMON_DSS_URL    = 'https://dss.ind-west-1.staging.jiocloudservices.com'
+#COMMON_DSS_URL    = 'http://127.0.0.1:8000'
+#COMMON_DSS_URL    = 'http://10.140.214.199:7480'
 COMMON_ACCESS_KEY = 'c767a3a2c9f74df59f2e96bbc8480768'
 COMMON_SECRET_KEY = 'b5daefbe3ba04565b5fa8c62cb024df0'
-#COMMON_ACTION     = 'CreateBucket'
-COMMON_ACTION     = 'OPTIONS'
-COMMON_TARGET     = '/newabdbucket2'
-COMMON_FILE       = ''
+COMMON_ACTION     = 'PutObject'
+#COMMON_ACTION     = 'OPTIONS'
+COMMON_TARGET     = '/buck999/videofile.flv'
+COMMON_FILE       = 'videofile.flv'
+COMMON_NEWNAME    = ''
 
 ##===================================
 ## Main workflow
@@ -243,6 +248,8 @@ def make_dss_request():
     ## Build URL and send request
     url = COMMON_DSS_URL
     url += gets_dss_path()
+    url += '?newname='
+    url += COMMON_NEWNAME
     resp = ''
     if (dss_info['printer'] == 'curl'):
         # If user picked curl, make his a nice curl string and exit
@@ -304,5 +311,52 @@ def download_file(filname, url, headers):
             handle.write(block)
     return resp
 
+###########################################################################
 
-initiate ('prettyprint', COMMON_ACTION, COMMON_TARGET, COMMON_FILE)
+dssSanityLib.GLOBAL_DEBUG = 0
+BUCKETNAME = 'buckrenameop00000000'
+ret = dssSanityLib.fetchArgs(sys.argv[1:])
+if(ret == -1):
+    sys.exit(2)
+
+def create_bucket():
+    global BUCKETNAME
+    userObj = dssSanityLib.getConnection()
+    b = userObj.create_bucket(BUCKETNAME)
+    return
+
+def print_obj():
+    global BUCKETNAME
+    userObj = dssSanityLib.getConnection()
+    b = userObj.get_bucket(BUCKETNAME)
+    for k in b.list():
+        print "\nObj name: " + str(k) + "\t Data: " + k.get_contents_as_string()
+    return
+
+def delete_obj():
+    global BUCKETNAME
+    userObj = dssSanityLib.getConnection()
+    b = userObj.get_bucket(BUCKETNAME)
+    for k in b.list():
+        print "Deleting:   " + str(k)
+        k.delete()
+
+def create_obj():
+    global BUCKETNAME
+    name = dssSanityLib.getsNewBucketName()
+    userObj = dssSanityLib.getConnection()
+    b = userObj.get_bucket(BUCKETNAME)
+    k = Key(b)
+    k.key = name
+    k.set_contents_from_string('obj data')
+    return name
+
+create_bucket()
+#delete_obj()
+
+for i in range(1, 101):
+    obj = create_obj()
+    COMMON_NEWNAME = obj + '_new'
+    targ = '/' + BUCKETNAME + '/' + obj
+    initiate ('prettyprint', COMMON_ACTION, targ, COMMON_FILE)
+    time.sleep(1)
