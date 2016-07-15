@@ -314,7 +314,7 @@ def download_file(filname, url, headers):
 ###########################################################################
 
 dssSanityLib.GLOBAL_DEBUG = 0
-BUCKETNAME = 'buckrenameop00000000'
+BUCKETNAME = 'renameoptesting01'
 ret = dssSanityLib.fetchArgs(sys.argv[1:])
 if(ret == -1):
     sys.exit(2)
@@ -349,12 +349,15 @@ def create_obj():
     k = Key(b)
     k.key = name
     k.set_contents_from_string('obj data')
+    l = Key(b)
+    l.key = name + '_new'
+    l.set_contents_from_string('new obj data')
     return name
 
-create_bucket()
+#create_bucket()
 #delete_obj()
 
-for i in range(1, 101):
+for i in range(1, 2):
     obj = create_obj()
     COMMON_NEWNAME = obj + '_new'
     targ = '/' + BUCKETNAME + '/' + obj
