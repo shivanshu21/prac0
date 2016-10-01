@@ -138,9 +138,9 @@ set diffopt=filler,context:100000
 map <leader>, :bp<cr>
 map <leader>. :bn<cr>
 
-if filereadable("./cscope.out")
- cs add cscope.out
-endif
+"if filereadable("./cscope.out")
+" cs add cscope.out
+"endif
 set ruler
 
 if has("terminfo")
