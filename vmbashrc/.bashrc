@@ -8,12 +8,13 @@ alias vi="vim"
 alias GWD="cd ~/git/fsl-nfs-ganesha/"
 alias SHD="cd /home/shivanshu/"
 alias SQL="mysql -u root -p"
+alias BRC="vim ~/.bashrc"
+alias SBRC="source ~/.bashrc"
+
 #alias RGW="cd ~/workspace;vagrant ssh rgw"
 #alias SVM0="cd ~/workspace;vagrant ssh shiv0"
 #alias SVM1="cd ~/workspace;vagrant ssh shiv1"
 alias EC2="ssh -i ~/KurmaTest0.pem ec2-user@35.163.79.235"
-
-
 
 ## Git stuff
 alias diffgit="git diff --cached"
@@ -38,4 +39,23 @@ eval `dircolors -b ~/.dir_colors`
 
 alias FSL="ssh shivanshu@trex.fsl.cs.sunysb.edu"
 
+#======================================================
+alias dbuild="make clean-all build-all deploy-all test-all"
+alias nimbus="ssh shivanshug@nimbus-gateway.eng.vmware.com"
+
+#Nimbus
+export ESX="10.161.225.207"
+export VM1="10.161.255.114"
+export VM2="10.161.231.219"
+
+export GOVC_PASSWORD='ca$hc0w'
+export DOCKER_HUB_REPO=shivanshug
+export GOVC_INSECURE=1
+export GOVC_URL=$ESX
+export GOVC_USERNAME=root
+#export MANAGER1=$VM1
+#export WORKER1=$VM2
+#export WORKER2=$VM3
+
+#======================================================
 export PATH=$PATH:/root/bin
